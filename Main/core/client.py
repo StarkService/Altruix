@@ -33,6 +33,7 @@ from Main.core.cache import Cache
 from Main.utils.paste import Paste
 from ..utils._updater import Updater
 from pyrogram.session import Session
+import traceback
 from .config import Config, BaseConfig
 from ..utils.essentials import Essentials
 from .database import MongoDB, LocalDatabase
@@ -757,7 +758,7 @@ class AltruixClient:
                         )
                 except Exception as err:
                     await self.custom_log(
-                        f"[{import_type}] Failed To Load : {plugin_name} ({err})",
+                        f"[{import_type}] Failed To Load : {plugin_name} ({traceback.format_exc()})",
                         level=50,
                         p_msg=msg,
                     )
